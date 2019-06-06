@@ -17,10 +17,11 @@ ConfigUtils.setConfigProp('themePrefix', 'MarktestProject');
 
 /**
  * Use a custom plugins configuration file with:
- *
- * ConfigUtils.setLocalConfigurationFile('localConfig.json');
  */
-ConfigUtils.setLocalConfigurationFile('MapStore2/web/client/localConfig.json');
+
+  ConfigUtils.setLocalConfigurationFile('localConfig.json');
+ 
+ // ConfigUtils.setLocalConfigurationFile('MapStore2/web/client/localConfig.json');
 
 /**
  * Use a custom application configuration file with:
