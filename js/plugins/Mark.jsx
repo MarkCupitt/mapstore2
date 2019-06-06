@@ -1,12 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { get } from 'lodash';
 
 class MarkComponent extends React.Component {
+    static propTypes = {
+        zoom: PropTypes.number
+    };
+
     render() {
-        const style = { position: "absolute", top: "100px", left: "100px", zIndex: 10000000 };
-        return <div style={style}>Sample</div>;
+        const style = { position: "absolute", top: "100px", left: "100px", zIndex: 1000000 };
+        return <div style={style}>Zoom: {this.props.zoom}</div>;
     }
 }
 
-export const MarkPlugin = MarkComponent;
-// the Plugin postfix is mandatory, avoid bugs by calling all your descriptors
-// <Something>Plugin
+const ConnectedMark = connect((state) => {
+    return {
+        zoom: get(state, 'map.present.zoom') // connected property
+    };
+})(MarkComponent);
+
+export const MarkPlugin = ConnectedMark;
